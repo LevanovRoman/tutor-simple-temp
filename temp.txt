@@ -1,0 +1,122 @@
+public class Book {
+    private long id;
+
+    private String title;
+
+    private String author;
+
+    // getters and setters
+}
+----------------------------------------
+@GetMapping("/all")
+public String showAll(Model model) {
+    model.addAttribute("books", bookService.findAll());
+    return "books/allBooks";
+}
+-------------------------------------------
+Здесь мы добавили объекты List of Book в качестве атрибута модели, отправляемого в представление, где мы будем отображать его с помощью таблицы HTML:
+
+<table>
+    <thead>
+        <tr>
+            <th> Title </th>
+            <th> Author </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${books.empty}">
+            <td colspan="2"> No Books Available </td>
+        </tr>
+        <tr th:each="book : ${books}">
+            <td><span th:text="${book.title}"> Title </span></td>
+            <td><span th:text="${book.author}"> Author </span></td>
+        </tr>
+    </tbody>
+</table>
+
+Здесь мы используем свойство th:each для перебора списка и отображения свойств каждого объекта в нем.
+
+4. Привязка списка с использованием выражения выбора
+Чтобы отправить список объектов из представления в контроллер через отправку формы, мы не можем использовать сам объект List .
+
+Вместо этого мы должны добавить объект-оболочку, который будет содержать отправленный список:
+
+public class BooksCreationDto {
+    private List<Book> books;
+
+    // default and parameterized constructor
+
+    public void addBook(Book book) {
+        this.books.add(book);
+    }
+
+    // getter and setter
+}
+
+Теперь давайте позволим пользователю добавить три книги в одну отправку формы.
+
+Во-первых, мы подготовим страницу формы, передав наш объект команды в качестве атрибута модели :
+
+@GetMapping("/create")
+public String showCreateForm(Model model) {
+    BooksCreationDto booksForm = new BooksCreationDto();
+
+    for (int i = 1; i <= 3; i++) {
+        booksForm.addBook(new Book());
+    }
+
+    model.addAttribute("form", booksForm);
+    return "books/createBooksForm";
+}
+
+Как мы видим, мы передали в представление список из 3 пустых объектов Book через класс-оболочку.
+
+Далее нам нужно добавить форму на страницу Thymeleaf:
+
+<form action="#" th:action="@{/books/save}" th:object="${form}"
+  method="post">
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Save">
+        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+        <table>
+            <thead>
+                <tr>
+                    <th> Title</th>
+                    <th> Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book, itemStat : *{books}">
+                    <td><input th:field="*{books[__${itemStat.index}__].title}" /></td>
+                    <td><input th:field="*{books[__${itemStat.index}__].author}" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+</form>
+
+----------------------------------
+Давайте поближе посмотрим, что мы здесь сделали. Во- первых, мы использовали th:object="${form}" для указания объекта команды (тот, который мы передали как атрибут модели ).
+
+Следующее, что стоит отметить, это то, что мы получили доступ к списку с помощью выражения выбора, используя:
+
+<tr th:each="book, itemStat : *{books}">
+
+И, наконец, мы сопоставляем наши входные данные как свойства элементов списка, используя th:field.
+
+Однако нам также нужно использовать переменную itemStat , чтобы определить, на какой элемент списка мы ссылаемся, как показано в:
+
+th:field="*{books[__${itemStat.index}__].title}"
+
+Последний шаг — фактически манипулировать отправленными данными на серверной части. Мы будем использовать объект команды как @ModelAttribute в нашем методе @PostMapping в контроллере, сохраним полученный список книг и вернем пользователю все существующие книги:
+
+@PostMapping("/save")
+public String saveBooks(@ModelAttribute BooksCreationDto form, Model model) {
+    bookService.saveAll(form.getBooks());
+
+    model.addAttribute("books", bookService.findAll());
+    return "redirect:/books/all";
+}
+
+После отправки формы в конечную точку /save мы получим страницу со всеми недавно добавленными книгами:
+
