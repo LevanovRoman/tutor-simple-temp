@@ -1,7 +1,9 @@
 package com.testing.questions_history.controller;
 
 import com.testing.questions_history.QuestionNotFoundException;
+import com.testing.questions_history.model.Category;
 import com.testing.questions_history.model.Question;
+import com.testing.questions_history.service.CategoryService;
 import com.testing.questions_history.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,37 +15,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
+@RequestMapping("/questions")
 @RequiredArgsConstructor
 public class QuestionController {
 
     private final QuestionService questionService;
+    private final CategoryService categoryService;
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
-    }
-
-    @GetMapping("/questions")
-    public ModelAndView getAllQuestions(){
+    @GetMapping
+    public String getAllQuestions(Model model){
         List<Question> questionList = questionService.getAllQuestions();
-        return new ModelAndView("AllQuestions", "questionsList", questionList);
+        List<Category> categoryList = categoryService.getAllCategory();
+        model.addAttribute("questionsList", questionList);
+        model.addAttribute("categoryList", categoryList);
+        return "AllQuestions";
     }
 
-    @GetMapping("/questions/new")
+    @GetMapping("/new")
     public String showNewForm(Model model){
         model.addAttribute("question", new Question());
         model.addAttribute("pageTitle", "Add New Question");
         return "question_form";
     }
 
-    @PostMapping("/questions/save")
+    @PostMapping("/save")
     public String saveQuestion(Question question, RedirectAttributes attributes){
         questionService.save(question);
         attributes.addFlashAttribute("message", "The question has been saved successfully.");
         return "redirect:/questions";
     }
 
-    @GetMapping("/questions/edit/{id}")
+    @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model,RedirectAttributes attributes){
         try{
             Question question = questionService.getQuestionById(id);
@@ -57,7 +59,7 @@ public class QuestionController {
         }
     }
 
-    @GetMapping("/questions/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteQuestion(@PathVariable("id") Integer id, RedirectAttributes attributes){
         try{
             questionService.deleteQuestionById(id);

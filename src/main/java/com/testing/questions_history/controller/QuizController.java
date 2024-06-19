@@ -14,29 +14,27 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
+@RequestMapping("/quiz")
 @RequiredArgsConstructor
 public class QuizController {
 
     private final QuizService quizService;
 
-    private final CategoryService categoryService;
-
     private static int testId;
 
-    @GetMapping("/quiz-home")
-    public ModelAndView getQuizHomePage(){
-        List<Category> categoryList = categoryService.getAllCategory();
-        return new ModelAndView("quiz-home", "categoryList", categoryList);
+    @GetMapping("/home")
+    public String getQuizHomePage(){
+        return "quiz-home";
     }
 
-    @PostMapping("/quiz/create")
+    @PostMapping("/create")
     public String createQuiz(@RequestParam("quiz-title") String quizTitle,
                              @RequestParam("cat") String cat){
         Quiz quiz = quizService.createQuiz(quizTitle, cat);
         return "redirect:/quiz/getQuiz/" + Integer.toString(quiz.getId());
     }
 
-    @GetMapping("/quiz/getQuiz/{id}")
+    @GetMapping("/getQuiz/{id}")
     public String getQuizQuestions(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
             List<QuestionWrapper> questionsForUser = quizService.getQuizQuestions(id);
@@ -46,12 +44,12 @@ public class QuizController {
             return "quizList";
         } catch (QuestionNotFoundException e) {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
-            return "redirect:/quiz-home";
+            return "redirect:/quiz/home";
         }
     }
 
 
-    @PostMapping("/quiz/commit")
+    @PostMapping("/commit")
     public String getAnswer(@RequestParam("answer1") String answer1,
                             @RequestParam("answer2") String answer2,
                             @RequestParam("answer3") String answer3,
@@ -67,12 +65,12 @@ public class QuizController {
             return "quiz-result";
         } catch (QuestionNotFoundException e){
             redirectAttributes.addFlashAttribute("message", e.getMessage());
-            return "redirect:/quiz-home";
+            return "redirect:/quiz/home";
         }
 
     }
 
-    @GetMapping("/quiz-allResults")
+    @GetMapping("/allResults")
     public String getAllResults(){
         return "quiz-allResults";
     }

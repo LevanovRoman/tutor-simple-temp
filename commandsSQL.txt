@@ -40,4 +40,5 @@ VALUES
     ('Which keyword is used to define a subclass in Java?', 'child', 'extends', 'inherits', 'subclass', 'extends', 'Easy', 'java'),
     ('What is the purpose of the "pass" statement in Python?', 'To stop the execution of a loop', 'To indicate an empty code block', 'To raise an exception', 'To terminate the program', 'To indicate an empty code block', 'Easy', 'python');
 
+INSERT INTO Category (category_title) VALUES ('java'), ('python'), ('c#');
 	select * from "Question"

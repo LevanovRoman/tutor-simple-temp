@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
+<header th:insert="~{blocks/header :: header}"></header>
 
 <div class="container-fluid">
     <div class="text-center"><h2>[[${pageTitle}]]</h2></div>
