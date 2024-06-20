@@ -1,12 +1,15 @@
 package com.testing.questions_history.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Quiz {
 
     @Id

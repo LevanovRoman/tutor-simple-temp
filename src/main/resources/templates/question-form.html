@@ -48,8 +48,14 @@
                 <input type="text" th:field="*{difficulty_level}" class="form-control" name="difficulty_level" id="difficulty_level">
             </div>
             <div class="mb-3">
-                <label for="category" class="form-label">category</label>
-                <input type="text" th:field="*{category}" class="form-control" name="category" id="category">
+                <th:block th:each="cat : ${categoryList}">
+                    <div class="form_radio_btn mb-3">
+                        <input th:id="${cat.id}" type="radio" name="cat" th:value="${cat.id}" th:field="*{category}">
+                        <label th:for="${cat.id}" th:text="${cat.category_title}"></label>
+                    </div>
+                </th:block>
+<!--                <label for="category" class="form-label">category</label>-->
+<!--                <input type="text" th:field="*{category}" class="form-control" name="category" id="category">-->
             </div>
 
             <div class="text-center">

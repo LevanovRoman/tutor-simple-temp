@@ -21,8 +21,8 @@ public class QuizService {
 
     private final QuizRepository quizRepository;
 
-    public Quiz createQuiz(String quizTitle, String category) {
-        List<Question> questionList =  questionRepository.findRandomQuestionsByCategory(category, 3);
+    public Quiz createQuiz(String quizTitle, int categoryId) {
+        List<Question> questionList =  questionRepository.findRandomQuestionsByCategory(categoryId, 3);
         Quiz quiz = new Quiz();
         quiz.setTitle(quizTitle);
         quiz.setQuestions(questionList);

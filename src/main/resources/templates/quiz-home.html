@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{../images/css/styles.css}">
 </head>
 <body>
-<header th:insert="blocks/quiz-header :: quiz-header"></header>
+<header th:insert="~{blocks/quiz-header :: quiz-header}"></header>
 
 <div class="container text-center my-5">
     <h1 class="my-5">WELCOME TO HISTORY TESTING</h1>
@@ -27,8 +27,8 @@
 
             <p class="text-center">Категория</p>
             <th:block th:each="cat : ${categoryList}">
-                <div class="form_radio_btn">
-                    <input th:id="${cat.id}" type="radio" name="cat" th:value="${cat.category_title}">
+                <div class="form_radio_btn mb-3">
+                    <input th:id="${cat.id}" type="radio" name="categoryId" th:value="${cat.id}">
                     <label th:for="${cat.id}" th:text="${cat.category_title}"></label>
                 </div>
             </th:block>
@@ -42,7 +42,7 @@
 
     </form>
 </div>
-<div th:insert="blocks/footer :: footer"></div>
+<div th:insert="~{blocks/footer :: footer}"></div>
 
 <script type="text/javascript">
     function cancelForm() {

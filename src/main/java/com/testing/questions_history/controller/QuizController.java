@@ -31,8 +31,8 @@ public class QuizController {
 
     @PostMapping("/create")
     public String createQuiz(@RequestParam("quiz-title") String quizTitle,
-                             @RequestParam("cat") String cat){
-        Quiz quiz = quizService.createQuiz(quizTitle, cat);
+                             @RequestParam("categoryId") Integer categoryId){
+        Quiz quiz = quizService.createQuiz(quizTitle, categoryId);
         return "redirect:/quiz/getQuiz/" + Integer.toString(quiz.getId());
     }
 

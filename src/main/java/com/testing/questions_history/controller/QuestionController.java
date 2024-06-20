@@ -50,9 +50,9 @@ public class QuestionController {
 
     @GetMapping("/new")
     public String showNewForm(Model model){
+        model.addAttribute("categoryList", getCategoryList());
         model.addAttribute("question", new Question());
         model.addAttribute("pageTitle", "Add New Question");
-        model.addAttribute("categoryList", getCategoryList());
         return "question-form";
     }
 
@@ -64,7 +64,7 @@ public class QuestionController {
     }
 
     @GetMapping("/edit/{id}")
-    public String showEditForm(@PathVariable("id") Integer id, Model model,RedirectAttributes attributes){
+    public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes attributes){
         try{
             Question question = questionService.getQuestionById(id);
             model.addAttribute("question", question);

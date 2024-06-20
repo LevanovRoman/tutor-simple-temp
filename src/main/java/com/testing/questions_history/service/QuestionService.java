@@ -40,6 +40,6 @@ public class QuestionService {
     }
 
     public List<Question> getQuestionsByCategoryId(int categoryId) {
-        return null;
+        return questionRepository.findAllByCategory_Id(categoryId);
     }
 }
