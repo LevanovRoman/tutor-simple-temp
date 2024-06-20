@@ -19,11 +19,13 @@ import java.util.List;
 public class QuizController {
 
     private final QuizService quizService;
+    private final CategoryService categoryService;
 
     private static int testId;
 
     @GetMapping("/home")
-    public String getQuizHomePage(){
+    public String getQuizHomePage(Model model){
+        model.addAttribute("categoryList", categoryService.getAllCategory());
         return "quiz-home";
     }
 

@@ -38,4 +38,8 @@ public class QuestionService {
         }
         questionRepository.deleteById(id);
     }
+
+    public List<Question> getQuestionsByCategoryId(int categoryId) {
+        return null;
+    }
 }
