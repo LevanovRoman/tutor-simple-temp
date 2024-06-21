@@ -22,6 +22,7 @@ public class QuizController {
     private final CategoryService categoryService;
 
     private static int testId;
+    private List<QuestionWrapper> questionsForUser;
 
     @GetMapping("/home")
     public String getQuizHomePage(Model model){
@@ -39,8 +40,8 @@ public class QuizController {
     @GetMapping("/getQuiz/{id}")
     public String getQuizQuestions(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
-            List<QuestionWrapper> questionsForUser = quizService.getQuizQuestions(id);
-
+//            List<QuestionWrapper> questionsForUser = quizService.getQuizQuestions(id);
+            questionsForUser = quizService.getQuizQuestions(id);
             model.addAttribute("quizObject", questionsForUser);
             testId = id;
             return "quizList";
@@ -52,18 +53,16 @@ public class QuizController {
 
 
     @PostMapping("/commit")
-    public String getAnswer(@RequestParam("answer1") String answer1,
-                            @RequestParam("answer2") String answer2,
-                            @RequestParam("answer3") String answer3,
+    public String getAnswer(AnswerForQuiz answer,
                             Model model, RedirectAttributes redirectAttributes) {
         try {
-            List<String> resultList = List.of(answer1, answer2, answer3);
-            System.out.println(resultList);
-            System.out.println(testId);
-            int result = quizService.calculateResult(testId, resultList);
-            System.out.println(result);
+//            List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3());
+            int result = quizService.calculateResult(testId, answer);
             model.addAttribute("result", result);
 
+            List<ResultAnswer> resultAnswer = quizService.getResultAnswer(questionsForUser, answer);
+//            model.addAttribute("questionsForUser", quizService.getQuizById(testId).get());
+            model.addAttribute("resultAnswer", resultAnswer);
             return "quiz-result";
         } catch (QuestionNotFoundException e){
             redirectAttributes.addFlashAttribute("message", e.getMessage());

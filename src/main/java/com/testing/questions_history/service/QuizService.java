@@ -1,6 +1,8 @@
 package com.testing.questions_history.service;
 
 import com.testing.questions_history.QuestionNotFoundException;
+import com.testing.questions_history.controller.AnswerForQuiz;
+import com.testing.questions_history.controller.ResultAnswer;
 import com.testing.questions_history.model.Question;
 import com.testing.questions_history.model.QuestionWrapper;
 import com.testing.questions_history.model.Quiz;
@@ -39,7 +41,7 @@ public class QuizService {
             List<QuestionWrapper> questionsForUser = new ArrayList<>();
             for (Question q : questionFromDB) {
                 QuestionWrapper qw = new QuestionWrapper(q.getId(), q.getQuestion_title(), q.getOption1(),
-                        q.getOption2(), q.getOption3(), q.getOption4());
+                        q.getOption2(), q.getOption3(), q.getOption4(), q.getRight_answer());
                 questionsForUser.add(qw);
             }
 
@@ -48,18 +50,39 @@ public class QuizService {
         throw new QuestionNotFoundException("Could not find any quiz with ID " + id);
     }
 
-    public int calculateResult(Integer id, List<String> resultList) throws QuestionNotFoundException {
+//    public int calculateResult(Integer id, List<String> resultList) throws QuestionNotFoundException {
+//
+//        Optional<Quiz> quiz = quizRepository.findById(id);
+//        if (quiz.isPresent()) {
+//            List<Question> questions = quiz.get().getQuestions();
+//
+//            int right = 0;
+//            int i = 0;
+//            System.out.println("SERVICE");
+//            for (int j = 0; j < 3; j++) {
+//                System.out.println(resultList.get(i));
+//                System.out.println(questions.get(i).getRight_answer());
+//                if (resultList.get(i).equals(questions.get(i).getRight_answer()))
+//                    right++;
+//                i++;
+//            }
+//            return right;
+//        }
+//        throw new QuestionNotFoundException("Could not find any quiz with ID " + id);
+//    }
+
+    public int calculateResult(Integer id, AnswerForQuiz answer) throws QuestionNotFoundException {
 
         Optional<Quiz> quiz = quizRepository.findById(id);
         if (quiz.isPresent()) {
             List<Question> questions = quiz.get().getQuestions();
-
+            List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3());
             int right = 0;
             int i = 0;
-            System.out.println("SERVICE");
+//            System.out.println("SERVICE");
             for (int j = 0; j < 3; j++) {
-                System.out.println(resultList.get(i));
-                System.out.println(questions.get(i).getRight_answer());
+//                System.out.println(resultList.get(i));
+//                System.out.println(questions.get(i).getRight_answer());
                 if (resultList.get(i).equals(questions.get(i).getRight_answer()))
                     right++;
                 i++;
@@ -69,4 +92,24 @@ public class QuizService {
         throw new QuestionNotFoundException("Could not find any quiz with ID " + id);
     }
 
+//    public Optional<Quiz> getQuizById(int testId) {
+//        return quizRepository.findById(testId);
+//    }
+
+    public List<ResultAnswer> getResultAnswer(List<QuestionWrapper> questionsForUser, AnswerForQuiz answer) {
+        List<ResultAnswer> resultAnswers = new ArrayList<>();
+        List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3());
+        int i = 0;
+        boolean ch;
+        for (int j = 0; j < 3; j++) {
+            String right_answer = questionsForUser.get(i).getRight_answer();
+            String user_answer = resultList.get(i);
+            ch = user_answer.equals(right_answer);
+            ResultAnswer answerTemp = new ResultAnswer(questionsForUser.get(i).getQuestion_title(),
+                    right_answer, user_answer, ch);
+            resultAnswers.add(answerTemp);
+            i++;
+        }
+        return resultAnswers;
+    }
 }

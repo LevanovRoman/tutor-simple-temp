@@ -12,7 +12,26 @@
 
 <div class="container text-center my-5">
     <h1 class="my-5">Thank you for completing the history test</h1>
-    <h3>Your result :  [[${result}]]</h3>
+    <h3>Ваш результат :  [[${result}]]</h3>
+
+        <div>
+            <th:block th:each="result : ${resultAnswer}">
+                <hr>
+                <h5>Вопрос</h5>
+                <p>[[${result.question_title}]]</p>
+                <h5>Правильный ответ</h5>
+                <p>[[${result.right_answer}]]</p>
+                <h5>Ваш ответ</h5>
+                <p>[[${result.user_answer}]]</p>
+                <span th:switch="${result.check}">
+                  <i th:case="true" class="fas fa-check green-text" style="color: royalblue">Правильно</i>
+                  <i th:case="false" class="fas fa-times red-text" style="color: crimson">Неправильно</i>
+                </span>
+                <hr>
+            </th:block>
+        </div>
+
+
     <div class="text-center">
         <button type="button" class="btn btn-primary m-2" onclick="allResults()">Все результаты</button>
         <button type="button" class="btn btn-secondary m-2" onclick="oneMoreTime()">Пройти ещё раз</button>
@@ -20,7 +39,7 @@
 
 </div>
 
-<div th:insert="blocks/footer :: footer"></div>
+<div th:insert="~{blocks/footer :: footer}"></div>
 
 <script type="text/javascript">
     function oneMoreTime() {
