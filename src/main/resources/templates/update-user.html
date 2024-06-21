@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Обновление пользователя</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+</head>
+<body>
+<!--<div class="container col-md-offset-3 col-md-8 mt-lg-5">-->
+
+<nav class="navbar navbar-expand-lg  navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">History Testing</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-5">
+                    <a class="nav-link active text-white" aria-current="page" th:href="@{'/'}">Home</a>
+                </li>
+                <li class="nav-item mx-5">
+                    <a class="nav-link text-white" th:href="@{'/question'}">Questions</a>
+                </li>
+                <!--                    <li class="nav-item mx-5">-->
+                <!--                        <a class="nav-link text-white" th:href="@{'/questions/new'}">Add Question</a>-->
+                <!--                    </li>-->
+                <li class="nav-item mx-5">
+                    <a class="nav-link text-white" th:href="@{'/quiz/home'}">Start Quiz</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-light px-5" href="#" th:href="@{/registration/registration-form}">Регистрация</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-light" href="#" th:href="@{/login}">Войти</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link text-light" href="#" th:href="@{/logout}">Выйти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <h2 class="m-4">Редактирование пользователя</h2>
+    <form th:action="@{/users/update/{id}(id=${user.id})}" method="post" th:object="${user}" class="px-4">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3 row">
+            <label for="firstName" class="col-sm-2 col-form-label">Имя</label>
+            <div class="col-sm-6">
+                <input type="text"  id="firstName" autofocus="autofocus"
+                       class="form-control" required name="firstName" th:field="*{firstName}" >
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="lastName" class="col-sm-2 col-form-label">Фамилия</label>
+            <div class="col-sm-6">
+                <input type="text"  id="lastName" autofocus="autofocus"
+                       class="form-control" required name="lastName" th:field="*{lastName}" >
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Почта</label>
+            <div class="col-sm-6">
+                <input type="text"  id="email" autofocus="autofocus"
+                       class="form-control" required name="email" th:field="*{email}" >
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </div>
+    </form>
+<!--</div>-->
+</body>
+</html>

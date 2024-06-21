@@ -65,6 +65,25 @@ CREATE TABLE Question (
     category_id integer REFERENCES Category (id)
 );
 
+CREATE TABLE Role (
+                      id SERIAL PRIMARY KEY,
+                      name TEXT NOT NULL);
+
+CREATE TABLE "user" (
+                      id SERIAL PRIMARY KEY,
+                      firstName TEXT NOT NULL,
+                      lastName TEXT NOT NULL,
+                      email TEXT NOT NULL,
+                      password TEXT NOT NULL,
+                      isEnabled boolean,
+                      right_answer TEXT NOT NULL
+);
+
+CREATE TABLE User_roles (
+                            user_id integer REFERENCES "user" (id),
+                            role_id integer REFERENCES Role (id)
+);
+
 INSERT INTO Category (category_title) VALUES ('java'), ('python'), ('c#');
 
 INSERT INTO Question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category_id)

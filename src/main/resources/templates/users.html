@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Участники</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+</head>
+<body>
+<!--<div class="container col-md-offset-3 col-md-8 mt-lg-5">-->
+
+<nav class="navbar navbar-expand-lg  navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">History Testing</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item mx-5">
+                    <a class="nav-link active text-white" aria-current="page" th:href="@{'/'}">Home</a>
+                </li>
+                <li class="nav-item mx-5">
+                    <a class="nav-link text-white" th:href="@{'/question'}">Questions</a>
+                </li>
+                <!--                    <li class="nav-item mx-5">-->
+                <!--                        <a class="nav-link text-white" th:href="@{'/questions/new'}">Add Question</a>-->
+                <!--                    </li>-->
+                <li class="nav-item mx-5">
+                    <a class="nav-link text-white" th:href="@{'/quiz/home'}">Start Quiz</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-light px-5" href="#" th:href="@{/registration/registration-form}">Регистрация</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link text-light" href="#" th:href="@{/login}">Войти</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link text-light" href="#" th:href="@{/logout}">Выйти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="row mt-2">
+        <div th:if="${param.update_success}" class=" alert alert-info">
+            Пользователь успешно обновлён.
+        </div>
+        <div th:if="${param.delete_success}" class=" alert alert-info">
+            Пользователь успешно удалён.
+        </div>
+    </div>
+    <div th:switch="${users}">
+        <h2 th:case="null">Нет пользователей.</h2>
+        <div th:case="*">
+            <h2 class="m-4 text-center">Все пользователи</h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Почта</th>
+                    <th colspan="2">Действия</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td><a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-info">Редактировать</a></td>
+                    <td><a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Удалить</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="m-5 text-center"><a th:href="@{/registration/registration-form}" class="btn btn-info">Добавить пользователя</a> </p>
+    </div>
+<!--</div>-->
+</body>
+</html>
