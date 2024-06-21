@@ -12,10 +12,10 @@
 
 <div class="container text-center my-5">
     <h1 class="my-5">Thank you for completing the history test</h1>
-    <h3>Ваш результат :  [[${result}]]</h3>
+    <h3>Ваш результат :  [[${completeResult.result}]]</h3>
 
         <div>
-            <th:block th:each="result : ${resultAnswer}">
+            <th:block th:each="result : ${completeResult.resultAnswerList}">
                 <hr>
                 <h5>Вопрос</h5>
                 <p>[[${result.question_title}]]</p>

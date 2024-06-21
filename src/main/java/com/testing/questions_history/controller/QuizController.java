@@ -1,6 +1,8 @@
 package com.testing.questions_history.controller;
 
 import com.testing.questions_history.QuestionNotFoundException;
+import com.testing.questions_history.dto.AnswerForQuiz;
+import com.testing.questions_history.dto.CompleteResult;
 import com.testing.questions_history.model.*;
 import com.testing.questions_history.service.CategoryService;
 import com.testing.questions_history.service.QuizService;
@@ -8,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -21,7 +22,6 @@ public class QuizController {
     private final QuizService quizService;
     private final CategoryService categoryService;
 
-    private static int testId;
     private List<QuestionWrapper> questionsForUser;
 
     @GetMapping("/home")
@@ -40,10 +40,9 @@ public class QuizController {
     @GetMapping("/getQuiz/{id}")
     public String getQuizQuestions(@PathVariable Integer id, Model model, RedirectAttributes redirectAttributes) {
         try {
-//            List<QuestionWrapper> questionsForUser = quizService.getQuizQuestions(id);
             questionsForUser = quizService.getQuizQuestions(id);
             model.addAttribute("quizObject", questionsForUser);
-            testId = id;
+            int testId = id;
             return "quizList";
         } catch (QuestionNotFoundException e) {
             redirectAttributes.addFlashAttribute("message", e.getMessage());
@@ -51,24 +50,11 @@ public class QuizController {
         }
     }
 
-
     @PostMapping("/commit")
-    public String getAnswer(AnswerForQuiz answer,
-                            Model model, RedirectAttributes redirectAttributes) {
-        try {
-//            List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3());
-            int result = quizService.calculateResult(testId, answer);
-            model.addAttribute("result", result);
-
-            List<ResultAnswer> resultAnswer = quizService.getResultAnswer(questionsForUser, answer);
-//            model.addAttribute("questionsForUser", quizService.getQuizById(testId).get());
-            model.addAttribute("resultAnswer", resultAnswer);
-            return "quiz-result";
-        } catch (QuestionNotFoundException e){
-            redirectAttributes.addFlashAttribute("message", e.getMessage());
-            return "redirect:/quiz/home";
-        }
-
+    public String getAnswer(AnswerForQuiz answer, Model model){
+        CompleteResult completeResult = quizService.getResultAnswer(questionsForUser, answer);
+        model.addAttribute("completeResult", completeResult);
+        return "quiz-result";
     }
 
     @GetMapping("/allResults")

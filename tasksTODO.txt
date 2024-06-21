@@ -1,7 +1,6 @@
-- select Categories in question-form
 - auto start script sql
 - 10 questions
-- results
+
 
 
 
