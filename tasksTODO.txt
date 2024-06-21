@@ -1,9 +1,5 @@
 - 10 questions
-- color button toggle
--docker-compose for mysql
 
-- quiz:
-  - change title of test
 user - role
 all users -  roles:changes
 user -> results of tests
