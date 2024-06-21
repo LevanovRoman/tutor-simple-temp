@@ -63,6 +63,7 @@
                     <th scope="col">Имя</th>
                     <th scope="col">Фамилия</th>
                     <th scope="col">Почта</th>
+                    <th scope="col">Авторизация</th>
                     <th colspan="2">Действия</th>
                 </tr>
                 </thead>
@@ -71,6 +72,11 @@
                     <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.email}"></td>
+                    <td>
+                        <ul th:each="role : ${user.roles}">
+                            <li th:text="${role.name}"></li>
+                        </ul>
+                    </td>
                     <td><a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-info">Редактировать</a></td>
                     <td><a th:href="@{/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Удалить</a></td>
                 </tr>

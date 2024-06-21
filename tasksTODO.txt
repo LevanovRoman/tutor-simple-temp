@@ -1,10 +1,10 @@
-- auto start script sql
 - 10 questions
+- color button toggle
+-docker-compose for mysql
 
-
-
-
-After Security:
 - quiz:
   - change title of test
-  - menu
+user - role
+all users -  roles:changes
+user -> results of tests
+all results for concrete user

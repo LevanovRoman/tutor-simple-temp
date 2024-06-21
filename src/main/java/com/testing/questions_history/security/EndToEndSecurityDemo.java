@@ -14,32 +14,26 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class EndToEndSecurityDemo {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    private static final String[] SECURED_URLs = {"/books/**"};
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        return http.csrf(new AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests().requestMatchers("/", "/registration/**").permitAll()
-//                .anyRequest().authenticated()
-//                .and().formLogin().loginPage("/login")
-//                .usernameParameter("email").defaultSuccessUrl("/").permitAll()
-//                .and().logout().invalidateHttpSession(true).clearAuthentication(true)
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/").and().build();
-//
-//    }
-
+    private static final String[] UN_SECURED_URLs = {
+            "/",
+            "/login",
+            "/error",
+            "/registration/**",
+            "/webjars/**",
+            "/images/**"
+    };
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/", "/login", "/error","/registration/**", "/webjars/**", "/images/**").permitAll()
+//                        .requestMatchers("/", "/login", "/error","/registration/**", "/webjars/**", "/images/**").permitAll()
+                        .requestMatchers(UN_SECURED_URLs).permitAll()
+                        // .requestMatchers(SECURED_URLs).hasAnyAuthority("USER", "ADMIN"))
+                        // .requestMatchers(SECURED_URLs).hasAuthority("ADMIN"))
                         .anyRequest().authenticated())
-//                        .requestMatchers("/users/**").hasAnyAuthority("USER", "ADMIN"))
                 .formLogin(form -> form.loginPage("/login")
                         .usernameParameter("email")
                         .defaultSuccessUrl("/").permitAll())
@@ -49,5 +43,9 @@ public class EndToEndSecurityDemo {
                 .build();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 }

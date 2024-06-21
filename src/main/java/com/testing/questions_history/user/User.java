@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 @Getter
@@ -29,11 +30,12 @@ public class User {
 
     private boolean isEnabled = false;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
+            CascadeType.MERGE, CascadeType.DETACH})
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Collection<Role> roles = new HashSet<>();
 
     public User(String firstname, String lastname, String email, String password, Collection<Role> roles) {
         this.firstName = firstname;
