@@ -25,7 +25,7 @@ public class QuizService {
     private final QuizRepository quizRepository;
 
     public Quiz createQuiz(String quizTitle, int categoryId) {
-        List<Question> questionList =  questionRepository.findRandomQuestionsByCategory(categoryId, 3);
+        List<Question> questionList =  questionRepository.findRandomQuestionsByCategory(categoryId, 10);
         Quiz quiz = new Quiz();
         quiz.setTitle(quizTitle);
         quiz.setQuestions(questionList);
@@ -51,11 +51,13 @@ public class QuizService {
 
     public CompleteResult getResultAnswer(List<QuestionWrapper> questionsForUser, AnswerForQuiz answer) {
         List<ResultAnswer> resultAnswers = new ArrayList<>();
-        List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3());
+        List<String> resultList = List.of(answer.answer1(), answer.answer2(), answer.answer3(),
+                                answer.answer4(), answer.answer5(), answer.answer6(), answer.answer7(),
+                                answer.answer8(), answer.answer9(), answer.answer10());
         int result = 0;
         int i = 0;
         boolean ch;
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 10; j++) {
             String right_answer = questionsForUser.get(i).getRight_answer();
             String user_answer = resultList.get(i);
             ch = user_answer.equals(right_answer);

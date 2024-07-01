@@ -4,3 +4,6 @@ user - role
 all users -  roles:changes
 user -> results of tests
 all results for concrete user
+
+QuizService -> createQuiz
+AnswerForQuiz

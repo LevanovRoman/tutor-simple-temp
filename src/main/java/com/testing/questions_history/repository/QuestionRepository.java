@@ -13,7 +13,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     Long countById(Integer id);
 
-    @Query(value = "SELECT * FROM question q WHERE q.category_id=:categoryId ORDER BY RAND() LIMIT :numQ",
+    @Query(value = "SELECT DISTINCT * FROM question q WHERE q.category_id=:categoryId ORDER BY RAND() LIMIT :numQ",
             nativeQuery = true)
     List<Question> findRandomQuestionsByCategory(@Param("categoryId") int categoryId, @Param("numQ") int numQ);
 
