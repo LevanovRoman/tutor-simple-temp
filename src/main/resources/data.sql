@@ -1,8 +1,8 @@
-CREATE TABLE Category (
+CREATE TABLE IF NOT EXISTS category (
                           id SERIAL PRIMARY KEY,
                           category_title TEXT NOT NULL);
 
-CREATE TABLE Question (
+CREATE TABLE IF NOT EXISTS question (
                           id SERIAL PRIMARY KEY,
                           question_title TEXT NOT NULL,
                           option1 TEXT NOT NULL,
@@ -14,9 +14,9 @@ CREATE TABLE Question (
                           category_id integer REFERENCES Category (id)
 );
 
-INSERT INTO Category (category_title) VALUES ('java'), ('python'), ('c#');
+INSERT INTO category (category_title) VALUES ('java'), ('python'), ('c#');
 
-INSERT INTO Question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category_id)
+INSERT INTO question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category_id)
 VALUES
     ('What is a class in Java?', 'A function', 'An object', 'A data structure', 'A loop', 'An object', 'Easy', 1),
     ('What does OOP stand for?', 'Object-Oriented Programming', 'Object Ordering Process', 'Operating Overloaded Pointers', 'Order of Operations', 'Object-Oriented Programming', 'Easy', 1),

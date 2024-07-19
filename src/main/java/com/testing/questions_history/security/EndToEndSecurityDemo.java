@@ -22,7 +22,12 @@ public class EndToEndSecurityDemo {
             "/error",
             "/registration/**",
             "/webjars/**",
-            "/images/**"
+            "/images/**",
+            "/css/**",
+            "/fonts/**",
+            "/js/**",
+            "/icons/**",
+            "/home/**",
     };
 
     @Bean

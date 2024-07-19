@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/icons/crown.svg">
+    <title>PRO100</title>
+    <script defer src="/js/main.js"></script>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="header">
+    <div class="header__inner container">
+        <img class="header__logo"
+             src="/icons/Logo.svg"
+             alt="просто"
+        >
+
+        <div class="header__link-wrapper">
+            <a class="header__link"
+               href="#tabs"
+            >
+                Курс
+            </a>
+
+            <a class="header__link"
+               href="#pull"
+            >
+                Попробовать бесплатно
+            </a>
+
+            <a class="header__link"
+               href="#tariff"
+            >
+                Тарифы
+            </a>
+
+            <a
+                th:href="@{'/home'}"
+            >
+                Испытай себя!
+            </a>
+        </div>
+
+        <div class="header__mobile hidden">
+            <img class="header__mobile-burger header__mobile-icon"
+                 src="/icons/burger.svg"
+                 alt="мобильное меню"
+            >
+
+            <img class="header__mobile-cross header__mobile-icon"
+                 src="/icons/cross.svg"
+                 alt="закрыть мобильное меню"
+            >
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="subheader">
+        <div class="container subheader__inner">
+            <div class="subheader__left">
+                <div class="subheader__left-date">
+                    сентябрь - май
+                </div>
+
+                <div class="subheader__left-text">
+                    <h1 class="subheader__left-title">
+                        Не душный <br>
+                        <hr>
+                        <span>
+                            Курс егэ огэ по общаге
+                        </span>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="subheader__right">
+                <div class="foto__card">
+                    <div class="foto__card-img_wrapper">
+                        <img class="foto__card-img"
+                             src="/images/main.jpg"
+                             alt="Еремина Татьяна"
+                        >
+                    </div>
+                </div>
+
+                <div class="subheader__right-text">
+                    <p class="subheader__right-about">
+                        Еремина Татьяна - автор уникальной программы подготовки к ЕГЭ
+                        по обществу для любого уровня
+                    </p>
+
+                    <div class="subheader__right-point">
+                        <img src="/icons/85.svg" alt="на 85+">
+                    </div>
+
+                    <img class="subheader__right-arrow"
+                         src="/icons/curved_arrow-top.svg"
+                         alt="стрелка вверх"
+                    >
+                </div>
+            </div>
+
+            <img class="subheader__bg"
+                 src="/icons/subheader_bg.svg"
+                 alt="фон звезда"
+            >
+
+            <img class="subheader__bg-wave"
+                 src="/icons/wave_white.svg"
+                 alt="фон волна"
+            >
+        </div>
+    </section>
+
+    <section class="afraid">
+        <div class="container">
+            <div class="section__top">
+                <h2 class="section__top-title">
+                    БОИШЬСЯ НЕ СДАТЬ?
+                </h2>
+
+                <div class="section__top-left">
+                    <img class="section__top-left-img"
+                         src="/icons/easy.svg"
+                         alt="да"
+                    >
+
+                    <div class="section__top-left-text">
+                        НЕ ДРЕЙФЬ, МЫ ПОМОЖЕМ!
+                    </div>
+                </div>
+            </div>
+
+            <div class="section__subheader">
+                С НАМИ ВЫ ТОЧНО ПОСТУПИТЕ!!!!
+            </div>
+
+            <div class="afraid__star-wrapper">
+                <div class="afraid__star afraid__star-pink">
+                    <span class="afraid__star-year afraid__star-year-pink">2022 ГОД</span>
+                    <span class="afraid__star-average">средний балл</span>
+                    <span class="afraid__star-point">80.22</span>
+                </div>
+
+                <div class="afraid__star afraid__star-mint">
+                    <span class="afraid__star-year afraid__star-year-mint">2023 ГОД</span>
+                    <span class="afraid__star-average">средний балл</span>
+                    <span class="afraid__star-point">75.68</span>
+                </div>
+
+                <div class="afraid__star afraid__star-pink">
+                    <span class="afraid__star-year afraid__star-year-pink">2024 ГОД</span>
+                    <span class="afraid__star-average">средний балл</span>
+                    <span class="afraid__star-point">78.53</span>
+                </div>
+            </div>
+
+            <div class="afraid__bottom">
+                <span>62.15 %</span> Наших выпускников - высокобальники
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>ОТЗЫВЫ</h2>
+
+        <div class="reviews__inner">
+            <div class="reviews_wrapper swiper">
+                <div class="swiper-wrapper">
+                    <div class="reviews__item swiper-slide">
+                        <img class="reviews__img"
+                             src="/images/review1.jpg"
+                             alt="отзыв"
+                        >
+                    </div>
+
+                    <div class="reviews__item swiper-slide">
+                        <img class="reviews__img"
+                             src="/images/review2.jpg"
+                             alt="отзыв"
+                        >
+                    </div>
+
+                    <div class="reviews__item swiper-slide">
+                        <img class="reviews__img"
+                             src="/images/review3.jpg"
+                             alt="отзыв"
+                        >
+                    </div>
+
+                    <div class="reviews__item swiper-slide">
+                        <img class="reviews__img"
+                             src="/images/review1.jpg"
+                             alt="отзыв"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="swiper-button-prev">
+                    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M1.53346 13.4522C0.700399 12.6633 0.700399 11.3367 1.53346 10.5478L11.3618 1.24044C12.1061 0.535658 13.2626 0.507597 14.0402 1.17546L14.318 1.41411C15.2176 2.1868 15.2511 3.56804 14.3901 4.38345L7.1139 11.2739C6.69737 11.6684 6.69737 12.3316 7.1139 12.7261L14.3901 19.6166C15.2511 20.432 15.2176 21.8132 14.318 22.5859L14.0402 22.8245C13.2626 23.4924 12.1061 23.4643 11.3618 22.7596L1.53346 13.4522Z"
+                              fill="white"/>
+                    </svg>
+
+                </div>
+
+                <div class="swiper-button-next">
+                    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M14.4665 13.4522C15.2996 12.6633 15.2996 11.3367 14.4665 10.5478L4.63818 1.24044C3.89394 0.535658 2.73735 0.507597 1.95981 1.17546L1.68198 1.41411C0.782408 2.1868 0.748898 3.56804 1.60994 4.38345L8.8861 11.2739C9.30263 11.6684 9.30263 12.3316 8.8861 12.7261L1.60994 19.6166C0.748898 20.432 0.782408 21.8132 1.68198 22.5859L1.95981 22.8245C2.73735 23.4924 3.89394 23.4643 4.63818 22.7596L14.4665 13.4522Z"
+                              fill="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews_bottom btn_pink">
+            <a href="https://vk.com/topic-87973450_49121709"
+               class="reviews__link"
+               target="_blank"
+            >
+                Еще больше отзывов
+            </a>
+        </div>
+    </section>
+
+    <section class="tabs" id="tabs">
+        <div class="container">
+            <h2 class="tabs__title">
+                КУРС ПРО
+                <svg width="134" height="56" viewBox="0 0 134 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.872 55.848C0.624 55.848 0 55.224 0 53.976C0 52.104 0.416 51.168 1.248 51.168C5.89333 51.168 9.18667 51.064 11.128 50.856C11.752 50.856 12.5493 50.7867 13.52 50.648L15.704 50.544C16.744 40.6987 17.6453 33.8693 18.408 30.056C19.1013 27.2827 20.0027 23.8853 21.112 19.864C18.1307 24.3707 14.5947 28.5653 10.504 32.448C9.88 32.864 9.29067 33.072 8.736 33.072C7.488 33.072 6.864 32.448 6.864 31.2C6.864 30.6453 7.072 30.056 7.488 29.432C10.816 26.0347 13.104 23.5733 14.352 22.048C14.768 21.4933 15.5653 20.4187 16.744 18.824C17.992 17.2293 19.1013 15.4613 20.072 13.52C22.4987 8.66667 24.2667 5.47733 25.376 3.952C26.3467 2.77333 27.2133 2.184 27.976 2.184C28.8773 2.184 29.328 2.73866 29.328 3.848V4.368L29.224 4.888L28.912 5.928H29.016L28.808 6.24C24.44 22.8107 21.632 37.5093 20.384 50.336C24.4053 50.1973 27.2827 50.128 29.016 50.128H33.384L34.84 50.232L36.816 50.336C37.9947 50.6827 38.584 51.376 38.584 52.416C38.584 53.5253 37.96 54.392 36.712 55.016C36.296 55.224 35.88 55.328 35.464 55.328L28.288 54.808L3.64 55.224C2.87733 55.64 2.288 55.848 1.872 55.848Z"
+                          fill="#404040"/>
+                    <path d="M61.6094 55.952C57.1721 55.952 53.7748 54.08 51.4174 50.336C49.1294 46.592 47.9854 41.8427 47.9854 36.088C47.9854 27.6987 49.4414 20.4533 52.3534 14.352C55.3348 8.18133 59.1481 3.952 63.7934 1.664C66.3588 0.554666 68.6468 0 70.6574 0C72.5988 0 74.0548 0.207999 75.0254 0.623998C76.0654 1.04 77.1748 1.69866 78.3534 2.6C78.9774 3.016 79.9134 3.77867 81.1614 4.888C81.7161 5.44266 82.6868 6.20533 84.0734 7.176C84.3508 7.73067 84.4894 8.35467 84.4894 9.048C84.4894 9.94933 83.9348 10.608 82.8254 11.024C84.7668 13.2427 85.7374 16.744 85.7374 21.528C85.7374 26.4507 84.6628 31.6507 82.5134 37.128C80.4334 42.536 77.6254 46.9733 74.0894 50.44C70.4841 54.1147 66.3241 55.952 61.6094 55.952ZM61.9214 52C65.5268 52 68.8201 50.336 71.8014 47.008C74.7828 43.68 77.0361 39.4853 78.5614 34.424C79.9481 29.5013 80.6414 25.6533 80.6414 22.88C80.6414 19.8987 80.0868 17.056 78.9774 14.352C78.8388 13.7973 78.7694 13.2773 78.7694 12.792C78.7694 12.168 79.2201 11.4747 80.1214 10.712C79.7054 10.4347 79.1161 9.91467 78.3534 9.152C75.5108 6.37867 72.9801 4.992 70.7614 4.992C66.8094 4.992 63.4121 6.552 60.5694 9.672C57.7268 12.792 55.6814 16.8827 54.4334 21.944C53.2548 26.8667 52.6654 31.408 52.6654 35.568C52.6654 42.5013 54.1908 47.424 57.2414 50.336C58.3508 51.4453 59.9108 52 61.9214 52Z"
+                          fill="#404040"/>
+                    <path d="M108.938 55.952C104.5 55.952 101.103 54.08 98.7456 50.336C96.4576 46.592 95.3136 41.8427 95.3136 36.088C95.3136 27.6987 96.7696 20.4533 99.6816 14.352C102.663 8.18133 106.476 3.952 111.122 1.664C113.687 0.554666 115.975 0 117.986 0C119.927 0 121.383 0.207999 122.354 0.623998C123.394 1.04 124.503 1.69866 125.682 2.6C126.306 3.016 127.242 3.77867 128.49 4.888C129.044 5.44266 130.015 6.20533 131.402 7.176C131.679 7.73067 131.818 8.35467 131.818 9.048C131.818 9.94933 131.263 10.608 130.154 11.024C132.095 13.2427 133.066 16.744 133.066 21.528C133.066 26.4507 131.991 31.6507 129.842 37.128C127.762 42.536 124.954 46.9733 121.418 50.44C117.812 54.1147 113.652 55.952 108.938 55.952ZM109.25 52C112.855 52 116.148 50.336 119.13 47.008C122.111 43.68 124.364 39.4853 125.89 34.424C127.276 29.5013 127.97 25.6533 127.97 22.88C127.97 19.8987 127.415 17.056 126.306 14.352C126.167 13.7973 126.098 13.2773 126.098 12.792C126.098 12.168 126.548 11.4747 127.45 10.712C127.034 10.4347 126.444 9.91467 125.682 9.152C122.839 6.37867 120.308 4.992 118.09 4.992C114.138 4.992 110.74 6.552 107.898 9.672C105.055 12.792 103.01 16.8827 101.762 21.944C100.583 26.8667 99.9936 31.408 99.9936 35.568C99.9936 42.5013 101.519 47.424 104.57 50.336C105.679 51.4453 107.239 52 109.25 52Z"
+                          fill="#404040"/>
+                </svg>
+            </h2>
+
+            <p class="tabs__subtitle">
+                ПРИХОДИ УЧИТЬСЯ К НАМ И ТЫ ПОЛУЧИШЬ
+            </p>
+
+            <div class="tabs__item-wrapper">
+                <div class="tabs__item-btn active">1</div>
+                <div class="tabs__item-btn">2</div>
+                <div class="tabs__item-btn">3</div>
+                <div class="tabs__item-btn">4</div>
+                <div class="tabs__item-btn">5</div>
+                <div class="tabs__item-btn">6</div>
+            </div>
+
+            <div class="tabs__item-body-wrapper">
+                <div class="tabs__item-body active">
+                    <div class="tabs__item-descr">
+                        <h3>ЭКСПЕРТНЫЙ КУРС</h3>
+
+                        <div>Годовой курс с крутыми учебными материалами</div>
+
+                        <div class="tabs__item-bottom">
+                            <div class="ul__wrapper">
+                                <div class="ul__title">
+                                    ЭКСПРЕСС-КУРС ПОВТОРЕНИЯ ЗА МЕСЯЦ ДО ЭКЗАМЕНА
+                                </div>
+
+                                <ul>
+                                    <li>без воды разбор всех модулей программы</li>
+                                    <li>пробники досрочного периода и готовые самые сложные задания письменной части
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ul__wrapper">
+                                <div class="ul__title">
+                                    МЫ С ТОБОЙ ДО ПОСЛЕДНЕГО
+                                </div>
+
+                                <ul>
+                                    <li>прогноз эксперта ЕГЭ</li>
+                                    <li>готовые шпоры</li>
+                                    <li>помощь с апелляцией</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab1.svg" alt="ЭКСПЕРТНЫЙ КУРС">
+                    </div>
+                </div>
+
+                <div class="tabs__item-body">
+                    <div class="tabs__item-descr">
+                        <h3>ОБЕСПЕЧИМ ВСЕМ НЕОБХОДИМЫМ</h3>
+
+                        <ul>
+                            <li>учебные пособия</li>
+                            <li>еженедельные пробники</li>
+                            <li>готовые шпоры по всей теории</li>
+                            <li>разборы и рекомендации к заданиям письменной части</li>
+                            <li>помощь с апелляцией ( но она тебе не понадобится)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab2.svg" alt="ОБЕСПЕЧИМ ВСЕМ НЕОБХОДИМЫМ">
+                    </div>
+                </div>
+
+                <div class="tabs__item-body">
+                    <div class="tabs__item-descr">
+                        <h3>ПОДДЕРЖКА НА ВСЕХ ЭТАПАХ ПОДГОТОВКИ</h3>
+
+                        <ul>
+                            <li>мы ВСЕГДА с тобой на связи</li>
+                            <li>только ПРОВЕРЕННЫЕ материалы</li>
+                            <li>групповой чат с разбором домашки</li>
+                            <li>поддержка единомышленников</li>
+                            <li>опорные конспекты</li>
+                            <li>учебники из федерального перечня</li>
+                            <li>реальные тестовые задания по критериям ФИПИ</li>
+                        </ul>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab3.svg" alt="ПОДДЕРЖКА НА ВСЕХ ЭТАПАХ ПОДГОТОВКИ">
+                    </div>
+                </div>
+
+                <div class="tabs__item-body">
+                    <div class="tabs__item-descr">
+                        <h3>НЕВОЗМОЖНОЕ ВОЗМОЖНО !!!</h3>
+
+                        <div class="tabs__item-subtitle">МЫ ДАРИМ РАДОСТЬ УЧЕНИКАМ И УВЕРЕННОСТЬ РОДИТЕЛЯМ!!!</div>
+
+                        <ul>
+                            <li>удобное расписание</li>
+                            <li>уроки в записи</li>
+                            <li>еженедельные тренировочные материалы</li>
+                            <li>поддерживающая атмосфера на уроке</li>
+                            <li>легкая и интересная подача материала</li>
+                        </ul>
+
+                        <div class="ul__title">ПРОСТО О СЛОЖНОМ</div>
+
+                        <p>
+                            Забудь о скучных и неинтересных уроках! <br>
+                            Тебя ждет множество жизненных примеров, разборов интересных заданий,
+                            увлекательных уроков и приятного общения.
+                        </p>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab4.svg" alt="НЕВОЗМОЖНОЕ ВОЗМОЖН">
+                    </div>
+                </div>
+
+                <div class="tabs__item-body">
+                    <div class="tabs__item-descr">
+                        <h3>БЕЗ МАНИПУЛЯЦИЙ</h3>
+
+                        <div class="tabs__item-block_wrapper">
+                            <div class="tabs__item-block">Нет оценок, системы штрафов, отчислений и критики.</div>
+                            <div class="tabs__item-block">Только комфортная среда и максимум поддержки!</div>
+                        </div>
+
+                        <div class="tabs__item-subtitle">VIP чат только для учеников курса ПРО100</div>
+
+                        <ul>
+                            <li>важные новости образования</li>
+                            <li>еженедельные пробники с решением</li>
+                            <li>запоминашки</li>
+                            <li>возможность задать любой вопрос и получить помощь</li>
+                        </ul>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab5.svg" alt="БЕЗ МАНИПУЛЯЦИЙ">
+                    </div>
+                </div>
+
+                <div class="tabs__item-body">
+                    <div class="tabs__item-descr">
+                        <h3>БОНУСЫ КУРСА ПРО100</h3>
+
+                        <div class="tabs__item-subtitle">КРОМЕ РАБОТЫ В ГРУППЕ ТЫ ПОЛУЧИШЬ</div>
+                        <div class="tabs__item-subtitle">ОООЧЕНЬ МНОГО ПЛЮШЕК!!!</div>
+
+                        <ul>
+                            <li>ознакомительный урок</li>
+                            <li>демоверсии</li>
+                            <li>кодификатор</li>
+                            <li>учебники</li>
+                            <li>пособия и практикумы по 2 части теста</li>
+                            <li>закрытый чат</li>
+                            <li>всю теорию в схемах</li>
+                            <li>инструкцию по самоподготовке</li>
+                            <li>прогноз эксперта</li>
+                            <li>готовые шпоры</li>
+                        </ul>
+                    </div>
+
+                    <div class="tabs__item-img">
+                        <img src="/icons/tab6.svg" alt="БОНУСЫ КУРСА ПРО100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success">
+        <div class="container">
+            <h2>ТВОЯ ИСТОРИЯ УСПЕХА</h2>
+
+            <div class="success__top">
+                <div class="success__months">
+                    <div class="success__months-title">
+                        <img src="/icons/calendar.svg"
+                             alt="календарь"
+                        >
+
+                        8 месяцев
+                    </div>
+
+                    <ol class="success__months-point">
+                        <li>
+                            работа в группе 12 часов в месяц
+                            <ul>
+                                <li>Теория</li>
+                                <li>Практика</li>
+                            </ul>
+                        </li>
+
+                        <li>вебинары по теории ПЛЮС 4 пробника в месяц</li>
+                        <li>тренажеры в VIP чате</li>
+                    </ol>
+                </div>
+
+                <div class="success__months">
+                    <div class="success__months-title">
+                        <img src="/icons/calendar.svg"
+                             alt="календарь"
+                        >
+
+                        1 месяц
+                    </div>
+
+                    <ol class="success__months-point">
+                        <li>печатаем запоминашки и шпоры</li>
+                        <li>проходим экспресс- курс повторения</li>
+                        <li>смотрим прогноз эксперта </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="success__months success__months-mint">
+                <ol class="success__months-point">
+                    <li>уверенно пишем ЕГЭ</li>
+                    <li>получаем максималочку</li>
+                    <li>поступаем в вуз мечты</li>
+                </ol>
+
+                <img src="/icons/house.svg"
+                     alt="дом"
+                >
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule">
+        <div class="container">
+            <div class="section__top">
+                <h2 class="section__top-title schedule__title">
+                    РАСПИСАНИЕ КУРСА
+                </h2>
+
+                <div class="section__top-left">
+                    <div class="section__top-left-text">
+                        РЕАЛЬНО ВСЕ ИЗУЧИМ ЗА 9 МЕСЯЦЕВ?
+                    </div>
+
+                    <img class="section__top-left-img"
+                         src="/images/cat.png"
+                         alt="кошка"
+                    >
+                </div>
+            </div>
+
+            <div class="schedule__wrapper">
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        Сентябрь - НОЯБРЬ
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Человек и общество
+                    </div>
+                </div>
+
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        Октябрь - НОЯБРЬ
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Экономика
+                    </div>
+                </div>
+
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        Декабрь
+                        -
+                        НОЯБРЬ
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Социология
+                    </div>
+                </div>
+
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        ЯНВАРЬ
+                        -
+                        Февраль
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Политика
+                    </div>
+                </div>
+
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        Март
+                        -
+                        Апрель
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Право
+                    </div>
+                </div>
+
+                <div class="schedule__item">
+                    <div class="schedule__item-title">
+                        Май
+                        -
+                        Июнь
+                    </div>
+
+                    <div class="schedule__item-subtitle">
+                        практика
+                    </div>
+
+                    <div class="schedule__item-descr">
+                        Экспресс - курс
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule__exam">
+                <span>Экзамен</span>
+            </div>
+
+            <a class="schedule__question"
+               href="https://vk.com/im?media=&sel=-87973450"
+               target="_blank">
+                <span>
+                    Есть вопросик
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <section class="too_good">
+        <div class="container">
+            <h2 class="too_good-title">
+                ЗВУЧИТ СЛИШКОМ ХОРОШО?
+            </h2>
+
+            <div class="too_good-subtitle">
+                НИКТО НЕ ИДЕАЛЕН!  И МЫ ТОЖЕ
+            </div>
+
+            <div class="too_good-arrow_wrapper">
+                <img class="too_good-arrow" src="/icons/curved_arrow_mint.svg" alt="стрелка">
+                <img class="too_good-arrow" src="/icons/curved_arrow_mint.svg" alt="стрелка">
+                <img class="too_good-arrow" src="/icons/curved_arrow_mint.svg" alt="стрелка">
+                <img class="too_good-arrow" src="/icons/curved_arrow_mint.svg" alt="стрелка">
+                <img class="too_good-arrow" src="/icons/curved_arrow_mint.svg" alt="стрелка">
+            </div>
+
+            <div class="too_good_items-wrapper">
+                <div class="too_good_item">
+                    <div class="too_good_item-title">
+                        НЕУДОБНОЕ ВРЕМЯ УРОКОВ
+                    </div>
+
+                    <div class="too_good_item-descr">
+                        это необходимо для высокобальников
+                    </div>
+                </div>
+
+                <div class="too_good_item">
+                    <div class="too_good_item-title">
+                        НЕУДОБНОЕ ВРЕМЯ УРОКОВ
+                    </div>
+
+                    <div class="too_good_item-descr">
+                        смотри сколько и когда захочешь в записи
+                    </div>
+                </div>
+
+                <div class="too_good_item">
+                    <div class="too_good_item-title">
+                        ДЛИННЫЕ УРОКИ
+                    </div>
+
+                    <div class="too_good_item-descr">
+                        есть конспект и шпора
+                    </div>
+                </div>
+
+                <div class="too_good_item">
+                    <div class="too_good_item-title">
+                        СЛОЖНО УСВАИВАТЬ
+                    </div>
+
+                    <div class="too_good_item-descr">
+                        ты всегда можешь обратиться за помощью к куратору, написать в чат и использовать шпору
+                    </div>
+                </div>
+
+                <div class="too_good_item">
+                    <div class="too_good_item-title">
+                        КОНКРЕТНЫЕ ДЭДЛАЙНЫ
+                    </div>
+
+                    <div class="too_good_item-descr">
+                        учиться системно важно для результата
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pull" id="pull">
+        <div class="container">
+            <div class="pull__inner">
+                <h2 class="pull__title">БОИШЬСЯ, ЧТО НЕ ПОТЯНЕШЬ КУРС ??</h2>
+
+                <div class="pull__subtitle">
+                    ЗАТЕСТИ ЕГО БЕСПЛАТНО, ЗАПИШИСЬ НА ДЕМО ДНИ!
+                </div>
+
+                <ul>
+                    <li>Посмотришь вебы</li>
+                    <li>Затестишь vip чат и тренажер заданий</li>
+                    <li>Получишь материалы к уроку</li>
+                    <li>Получишь курс домашки</li>
+                </ul>
+
+                <div class="pull__bottom">
+                    <a class="pull__bottom-test btn_pink"
+                       href="https://vk.com/im?media=&sel=-87973450"
+                       target="_blank"
+                    >
+                        Затестить курс
+                    </a>
+
+                    <a  class="pull__bottom-question btn_mint"
+                        href="https://vk.com/im?media=&sel=-87973450"
+                        target="_blank"
+                    >
+                        Есть вопросик
+
+                        <img class="pull__bottom-question-img"
+                             src="/icons/question_white.svg"
+                             alt="вопросик"
+                        >
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <h2>ПОЧЕМУ МНЕ МОЖНО ДОВЕРЯТЬ ???</h2>
+
+            <div class="trust__inner">
+                <div class="foto__card">
+                    <div class="foto__card-img_wrapper">
+                        <img class="foto__card-img"
+                             src="/images/why.jpg"
+                             alt="Еремина Татьяна"
+                        >
+                    </div>
+
+                    <div class="foto__card-title">
+                        Еремина Татьяна Евгеньевна
+                    </div>
+                </div>
+
+                <div class="trust__descr">
+                    <div class="trust__descr-title">
+                        КУРС ПРО100 прошли уже более 3000 учеников, более чем 60% из них высокобальники
+                    </div>
+
+                    <ul>
+                        <li>высшее профильное педагогическое образование</li>
+                        <li>18 лет педагогического стажа, стаж преподавания в ССУЗЕ 10 лет</li>
+                        <li>одна из первых в РФ, кто сдавал ЕГЭ в 2001 г еще на стадии его
+                            экспериментальной формы при существовании традиционной системы сдачи экзаменов в школе
+                        </li>
+                        <li>защищала диплом принимая сессию в меде будучи уже преподом,
+                            поэтому не понаслышке знакома с перегрузками во время подготовки к экзаменам и волнением
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tariff" id="tariff">
+        <div class="container">
+            <div class="section__top">
+                <div class="section__top-wrapper">
+                    <h2 class="section__top-title">
+                        ТАРИФЫ  КУРСА
+                    </h2>
+
+                    <p class="section__top-text">
+                        Я проверила уже не одну тысячу работ и приняла десятки экзаменов, так что точно знаю,
+                        как заполучить расположение экзаменатора
+                    </p>
+                </div>
+
+                <div class="section__top-left">
+                    <div class="section__top-left-text">
+                        ВЫБИРАЙ НАСКОЛЬКО ПРО100 СДАШЬ ТЫ ЕГЭ
+                    </div>
+
+                    <img class="section__top-left-img"
+                         src="/icons/curved_arrow.svg"
+                         alt="стрелочка"
+                    >
+                </div>
+            </div>
+
+            <div class="tariff__items">
+                <div class="tariff__item tariff__item-pink">
+                    <div class="tariff__item-header">
+                        <div class="tariff__item-title">
+                            ONLY
+                        </div>
+
+                        <div class="tariff__item-right">
+                            без обратной связи
+                        </div>
+                    </div>
+
+                    <div class="tariff__item-list">
+                        <ul>
+                            <li>полный курс самоподготовки к ЕГЭ</li>
+                            <li>вебы и уроки в записи по всем модулям</li>
+                            <li>4 пробника в месяц</li>
+                            <li>VIP чат с тренажером заданий</li>
+                            <li>все учебные материалы и шпоры</li>
+                        </ul>
+                    </div>
+
+                    <div class="tariff__item-bottom">
+                        <div class="tariff__item-bottom_coast">
+                            1 900₽
+                            <span>
+                              в месяц
+                            </span>
+                        </div>
+
+                        <a href="https://vk.com/im?media=&sel=-87973450"
+                           class="tariff__item-bottom_btn btn_pink"
+                           target="_blank"
+                        >
+                            Покупаю
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tariff__item tariff__item-mint">
+                    <div class="tariff__item-header">
+                        <div class="tariff__item-title">
+                            COMBO
+                        </div>
+
+                        <div class="tariff__item-right">
+                            с проверкой
+                        </div>
+                    </div>
+
+                    <div class="tariff__item-list">
+                        <ul>
+                            <li>полный курс подготовки к ЕГЭ с обратной связью, проверкой домашки и помощью куратора</li>
+                            <li>12 часов в месяц живых уроков</li>
+                            <li>4 пробника в месяц</li>
+                            <li>вебы в записи к каждому модулю</li>
+                            <li>VIP чат с тренажером заданий</li>
+                            <li>все учебные материалы и шпоры</li>
+                        </ul>
+                    </div>
+
+                    <div class="tariff__item-bottom">
+                        <div class="tariff__item-bottom_coast">
+                            4 900₽
+                            <span>
+                              в месяц
+                            </span>
+                        </div>
+
+                        <a href="https://vk.com/im?media=&sel=-87973450"
+                           class="tariff__item-bottom_btn btn_mint"
+                           target="_blank"
+                        >
+                            Покупаю
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="schedule__question"
+               href="https://vk.com/im?media=&sel=-87973450"
+               target="_blank">
+                <span>
+                    Есть вопросик
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <section class="dont_know">
+        <div class="container dont_know-inner">
+            <div class="dont_know-left">
+                <h2 class="dont_know-title">НЕ ЗНАЕШЬ КАКОЙ ВЫБРАТЬ ТАРИФ?</h2>
+
+                <div class="dont_know-subtitle">
+                    мы подскажем
+                </div>
+
+                <a class="dont_know-btn"
+                   href="https://vk.com/im?media=&sel=-87973450"
+                   target="_blank"
+                >
+                    Памагити
+                </a>
+            </div>
+
+            <div class="dont_know-right">
+                <div class="dont_know-question">хотите сэкономить?</div>
+                <div class="dont_know-question">хотите записать ребенка?</div>
+                <div class="dont_know-question">нужна дисциплина?</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="whole">
+        <div class="container">
+            <h2 class="whole__title">ЦЕЛИКОМ КУРС ДЕШЕВЛЕ</h2>
+
+            <div class="tariff__items">
+                <div class="tariff__item tariff__item-pink">
+                    <div class="tariff__item-header">
+                        <div class="tariff__item-title">
+                            ONLY
+                        </div>
+
+                        <div class="tariff__item-right">
+                            без обратной связи
+                        </div>
+                    </div>
+
+                    <div class="tariff__item-list">
+                        <ul>
+                            <li>полный курс самоподготовки к ЕГЭ</li>
+                            <li>вебы и уроки в записи по всем модулям</li>
+                            <li>4 пробника в месяц</li>
+                            <li>VIP чат с тренажером заданий</li>
+                            <li>все учебные материалы и шпоры</li>
+                        </ul>
+                    </div>
+
+                    <div class="tariff__item-bottom">
+                        <div class="tariff__item-bottom_coast">
+                            <span>
+                                17 100₽
+                            </span>
+
+                            13 500₽
+                        </div>
+
+                        <a href="https://vk.com/im?media=&sel=-87973450"
+                           class="tariff__item-bottom_btn btn_pink"
+                           target="_blank">
+                            Покупаю
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tariff__item tariff__item-mint">
+                    <div class="tariff__item-header">
+                        <div class="tariff__item-title">
+                            COMBO
+                        </div>
+
+                        <div class="tariff__item-right">
+                            с проверкой
+                        </div>
+                    </div>
+
+                    <div class="tariff__item-list">
+                        <ul>
+                            <li>полный курс подготовки к ЕГЭ с обратной связью, проверкой домашки и помощью куратора</li>
+                            <li>12 часов в месяц живых уроков</li>
+                            <li>4 пробника в месяц</li>
+                            <li>вебы в записи к каждому модулю</li>
+                            <li>VIP чат с тренажером заданий</li>
+                            <li>все учебные материалы и шпоры</li>
+                        </ul>
+                    </div>
+
+                    <div class="tariff__item-bottom">
+                        <div class="tariff__item-bottom_coast">
+                            <span>
+                                44 100₽
+                            </span>
+
+                            35 100₽
+                        </div>
+
+                        <a href="https://vk.com/im?media=&sel=-87973450"
+                           class="tariff__item-bottom_btn btn_mint"
+                           target="_blank">
+                            Покупаю
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="whole__title-bottom">
+                а можно скидку?
+            </div>
+
+            <div class="whole__friends">
+                <div class="whole__friends-title">
+                    друзья тоже сдают общагу?
+                </div>
+
+                <div class="whole__friends-subtitle">
+                    зови их к нам и получай скидки
+                </div>
+
+                <p class="whole__friends-descr">
+                    Пригласи друга и получи скидку 200 руб за приглашение,
+                    а друг - 200 руб на оплату первого месяца обучения
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="accordion">
+        <div class="container">
+            <h2 class="accordion__title">
+                ОТВЕТЫ НА ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+            </h2>
+
+            <div class="accordion__items">
+                <div class="accordion__item active">
+                    <div class="accordion__item-title">
+                        На вашем курсе только высокобалльники?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Нет, у каждого ученика на курсе своя цель -
+                        не всем нужно сдавать обществознание на 85+
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Как и сколько оплачивать?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Оплата курса производится раз в месяц
+                        в соответствии со стоимостью выбранного тарифа (ссылка на тарифы)
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        А можно оплатить всё обучение сразу?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Конечно! Если тебе удобно, можно оплатить сразу весь год -
+                        на оплату всего курса целиком действуют скидки.
+                        <a href="" target="_blank">
+                            (Ссылка на оплату годового курса)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Если я куплю месяц по скидке, сколько будет стоить обучение потом?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Все последующие месяцы обучения будут по той же стоимости до самого ЕГЭ.
+                        А повышение стоимости курса тебя не коснётся, обещаю.
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Я хочу ещеее  больше скидок
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        У нас есть программа приведи друга и получи дополнительную скидку в 250 руб.
+                        Для этого необходимо запросить ссылку у куратора и её переслать приглашенному другу.
+                        Скидки суммируются за каждого приведённого ученика.
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Сколько месяцев длится курс?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Учится будем до самого ЕГЭ с сентября по май/июнь ( до даты проведения экзамена).
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Что нужно для обучения?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Желание заниматься и принтер для распечатывания особо важных материалов (по желанию).
+                        Все остальные учебные материалы мы предоставим.
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Что делать после оплаты?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Проверь свою почту, там будет письмо с приглашением на учебную платформу. Если оно тебе не пришло, проверь почту в папке СПАМ.
+                        Если и там его нет напиши нам в поддержку и мы решим этот вопрос.
+                        <a class="modal__link modal__link-question btn_pink" href="https://vk.com/im?media=&sel=-87973450" target="_blank">
+                            <span>
+                                Есть вопросик
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Когда меня добавят в чат учеников?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Уже с 3 сентября тебя добавят в чат учеников и твоей группы,
+                        а так же в закрытый телеграмм-канал.
+                    </div>
+                </div>
+
+                <div class="accordion__item">
+                    <div class="accordion__item-title">
+                        Могут ли меня выгнать с курса?
+                    </div>
+
+                    <div class="accordion__item-descr">
+                        Нет, мы не выгоняем учеников из-за неуспеваемости, ведь на это могут быть свои причины.
+                        В сложной ситуации куратор всегда придёт тебе на помощь, чтобы восстановить ритм твоей работы.
+                    </div>
+                </div>
+            </div>
+
+            <a class="schedule__question"
+               href="https://vk.com/im?media=&sel=-87973450"
+               target="_blank"
+            >
+                <span>
+                    Остались ещё вопросы
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <section class="welcome">
+        <div class="container welcome__inner">
+            <div class="welcome__left">
+                <h2 class="welcome__title">
+                    ДОБРО ПОЖАЛОВАТЬ НА КУРС ТВОЕЙ МЕЧТЫ
+                </h2>
+
+                <a class="welcome__title-bottom btn_mint"
+                   href="https://vk.com/im?media=&sel=-87973450"
+                   target="_blank"
+                >
+                    <span>Кликни если остались вопросы</span>
+                </a>
+            </div>
+
+            <div class="welcome__right">
+                <div class="foto__card">
+                    <div class="foto__card-img_wrapper">
+                        <img class="foto__card-img"
+                             src="/images/welcome.jpg"
+                             alt="Еремина Татьяна"
+                        >
+                    </div>
+
+                    <div class="foto__card-text">
+                        <span class="foto__card-position">
+                            Твой препод
+                        </span>
+
+                        <span class="foto__card-name">
+                            ТАТЬЯНА ЕВГЕНЬЕВНА
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__service">
+            <div class="footer__service-title">
+                СЛУЖБА ПОДДЕРЖКИ
+            </div>
+
+            <a class="footer__link"
+               href="https://t.me/teacher_pro100"
+               target="_blank"
+            >
+                Задать вопрос telegram
+            </a>
+
+            <a class="footer__link"
+               href="https://vk.com/im?media=&sel=-87973450"
+               target="_blank"
+            >
+                Задать вопрос vk
+            </a>
+        </div>
+
+        <div>
+            2024 ©Про100
+        </div>
+
+        <div class="footer__policy">
+            <a class="footer__link"
+                    href=""
+                    target="_blank"
+            >
+                Договор оферты
+            </a>
+
+            <a class="footer__link"
+               href=""
+               target="_blank"
+            >
+                Политика конфиденциальности
+            </a>
+        </div>
+    </div>
+
+    <div class="back-to-top" title="Скролл к началу">
+        <img src="/icons/arrow_top.svg" alt="стрелка наверх">
+
+        <span>наверх</span>
+    </div>
+
+    <div class="modal">
+        <div class="modal__body">
+            <img class="modal__close"
+                 src="/icons/cross.svg"
+                 alt="закрыть мобильное меню"
+            >
+
+            <div class="modal__title">
+                Псс… прочитай меня!
+            </div>
+
+            <p class="modal__text">
+                Привет, тебе зашел курс и хочешь присоединиться к нашей компашке
+            </p>
+
+            <a class="modal__link btn_mint"
+               target="_blank"
+               href="https://vk.com/im?media=&sel=-87973450"
+            >
+                запись на курс
+            </a>
+
+            <p class="modal__text">
+                Или не все понятно, что у нас тут происходит, задай вопрос и получи исчерпывающий ответ!
+            </p>
+
+            <a  class="modal__link modal__link-question btn_pink"
+                href="https://vk.com/im?media=&sel=-87973450"
+                target="_blank"
+            >
+                <span>
+                    Есть вопросик
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <div class="modal__image">
+        <div class="modal__image-body">
+            <img class="modal__image-close"
+                 src="/icons/cross.svg"
+                 alt="закрыть мобильное меню"
+            >
+
+            <img class="modal__image-img"
+                 src=""
+                 alt="отзыв"
+            >
+        </div>
+    </div>
+</footer>
+</body>
+</html>
