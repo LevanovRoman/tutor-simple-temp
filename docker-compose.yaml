@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mysql-standalone:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=tutor_db
+      - MYSQL_USER=bestuser
+      - MYSQL_PASSWORD=bestuser
+  springboot-docker-container:
+    image: springboot-docker-container
+    ports:
+      - 8080:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-standalone

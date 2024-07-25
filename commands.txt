@@ -39,3 +39,9 @@ private String questionTitle;
 
 we can use MappingJacksonValue and SimpleBeanPropertyFilter for dynamic filter
 to Question class for specific api rather than creating new QuizWrapper class
+
+FROM openjdk:17-jdk-slim
+ADD ../../target/questions_history-2-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+mvn clean package -DskipTests

@@ -2,8 +2,9 @@ package com.testing.questions_history.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -19,5 +20,12 @@ public class Quiz {
     private String title;
 
     @ManyToMany
-    private List<Question> questions;
+    @JoinTable(name = "Quiz_questions",
+            joinColumns = @JoinColumn(name = "quiz_id"),
+            inverseJoinColumns = @JoinColumn(name = "questions_id"))
+    private List<Question> questions = new ArrayList<>();
+
+//    private List<Question> questions;
+
+
 }
